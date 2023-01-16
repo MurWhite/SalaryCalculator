@@ -21,7 +21,17 @@
   "libVersion": "2.27.1",
   "appid": "touristappid",
   "projectname": "HelloWorld",
-  "condition": {},
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/year/index",
+          "pathName": "pages/year/index",
+          "query": ""
+        }
+      ]
+    }
+  },
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

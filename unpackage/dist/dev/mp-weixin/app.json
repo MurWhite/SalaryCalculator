@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/year/index",
+    "pages/home/index"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "薪资计算器",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
