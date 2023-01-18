@@ -1,7 +1,7 @@
 {
-    "name" : "HelloWorld",
-    "appid" : "",
-    "description" : "",
+    "name" : "SalaryCalculator",
+    "appid" : "__UNI__A69FE44",
+    "description" : "薪资计算器",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
@@ -50,7 +50,7 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx94d21af9477196a4",
         "setting" : {
             "urlCheck" : false
         },

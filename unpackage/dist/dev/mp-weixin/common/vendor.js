@@ -3312,6 +3312,62 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
+/***/ 34:
+/*!******************************************************!*\
+  !*** /Users/x/code/SalaryCalculator/utils/format.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.toRate = toRate;exports.currencyHandle = currencyHandle;function toRate(value) {var base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 100;var decimals = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+  return isNaN(+value) ? value : (value * base).toFixed(decimals) + "%";
+}
+
+function currencyHandle(value, currency, decimals) {
+  if (!isFinite(value) || !value && value !== 0) {
+    return "-";
+  }
+  value = parseFloat(value);
+  //
+  var stringified = String(value);
+  var idx = stringified.indexOf(".");
+  var _int = "";
+  var _float = "";
+  var _floatStr = "";
+  //
+  if (idx !== -1) {
+    _int = stringified.substring(0, idx);
+    _floatStr = stringified.substring(idx);
+  } else {
+    _int = stringified;
+    _floatStr = ".";
+  }
+  if (decimals) {
+    var _floatLen = decimals + 1;
+    // while (_floatStr.length < _floatLen) {
+    //   _floatStr += '0'
+    // }
+    if (_floatStr.length < _floatLen) {
+      _floatStr = _floatStr.padEnd(_floatLen, "0");
+    }
+    _float = _floatStr.substring(0, _floatLen);
+  }
+  //
+  var i = _int.length % 3;
+  var head = i > 0 ? _int.slice(0, i) + (_int.length > 3 ? "," : "") : "";
+  var sign = value < 0 ? "-" : "";
+  return (
+    (currency ? " " + currency : "") +
+    sign +
+    head +
+    _int.slice(i).replace(/(\d{3})(?=\d)/g, "$1,") +
+    _float);
+
+}
+
+/***/ }),
+
 /***/ 4:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!

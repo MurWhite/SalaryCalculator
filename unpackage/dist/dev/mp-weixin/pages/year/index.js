@@ -107,11 +107,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function(e) {
-      return _vm.onRadioChange("type", e)
+  var m0 = _vm.showResult ? _vm.currency(_vm.leaveBonus) : null
+  var m1 = _vm.showResult ? _vm.currency(_vm.tax) : null
+  var m2 = _vm.showResult ? _vm.rate(_vm.rateInfo.rate) : null
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        m0: m0,
+        m1: m1,
+        m2: m2
+      }
     }
-  }
+  )
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -194,65 +202,82 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
+__webpack_require__(/*! @/styles/index.scss */ 18);
+var _format = __webpack_require__(/*! @/utils/format */ 34); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { type: 1, singleRateMap: [{ value: 5000, rate: 0, decrease: 0 }, { value: 36000, rate: 0.03, decrease: 0 }, { value: 144000, rate: 0.1, decrease: 2520 }, { value: 300000, rate: 0.2, decrease: 16920 }, { value: 420000, rate: 0.25, decrease: 31920 }, { value: 660000, rate: 0.3, decrease: 52920 }, { value: 960000, rate: 0.35, decrease: 85920 }, { value: Number.MAX_VALUE, rate: 0.45, decrease: 181920 }], bonus: "", leaveBonus: "", average: "", tax: "",
+      rateInfo: {},
+      showResult: false };
 
+  },
+  methods: {
+    calcSingleBonus: function calcSingleBonus() {var _this = this;
+      this.showResult = false;
+      var item = this.singleRateMap.find(function (it) {return it.value >= _this.bonus;});
+      if (!item) {
+        item = this.singleRateMap[this.singleRateMap.length - 1];
+      }
+      this.rateInfo = item;
 
-
-
-__webpack_require__(/*! @/styles/index.scss */ 18); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default = { data: function data() {return { type: 0, singleRateMap: [{ value: 3000, rate: 0.03, decrease: 0 }], bonus: '' };}, methods: { calcSingleBonus: function calcSingleBonus() {} } };exports.default = _default;
+      this.tax = this.bonus * this.rateInfo.rate - this.rateInfo.decrease / 12;
+      this.leaveBonus = this.bonus - this.tax;
+      this.average = this.bonus / 12;
+      this.showResult = true;
+    },
+    currency: function currency(value) {var currency = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";var decimals = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2;
+      return (0, _format.currencyHandle)(value, currency, decimals);
+    },
+    rate: function rate(value) {
+      return (0, _format.toRate)(value);
+    } } };exports.default = _default;
 
 /***/ }),
 /* 18 */,

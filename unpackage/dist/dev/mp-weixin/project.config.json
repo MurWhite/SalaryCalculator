@@ -19,8 +19,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.27.1",
-  "appid": "touristappid",
-  "projectname": "HelloWorld",
+  "appid": "wx94d21af9477196a4",
+  "projectname": "SalaryCalculator",
   "condition": {
     "miniprogram": {
       "list": [
