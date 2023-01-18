@@ -253,7 +253,9 @@ var _format = __webpack_require__(/*! @/utils/format */ 34); //
 //
 //
 //
-var _default = { data: function data() {return { type: 1, singleRateMap: [{ value: 5000, rate: 0, decrease: 0 }, { value: 36000, rate: 0.03, decrease: 0 }, { value: 144000, rate: 0.1, decrease: 2520 }, { value: 300000, rate: 0.2, decrease: 16920 }, { value: 420000, rate: 0.25, decrease: 31920 }, { value: 660000, rate: 0.3, decrease: 52920 }, { value: 960000, rate: 0.35, decrease: 85920 }, { value: Number.MAX_VALUE, rate: 0.45, decrease: 181920 }], bonus: "", leaveBonus: "", average: "", tax: "",
+var _default = { data: function data() {return { type: 1, singleRateMap: [{ value: 5000, rate: 0, decrease: 0 }, { value: 36000, rate: 0.03, decrease: 0 }, { value: 144000, rate: 0.1, decrease: 2520 }, { value: 300000, rate: 0.2, decrease: 16920 }, { value: 420000, rate: 0.25, decrease: 31920 }, { value: 660000, rate: 0.3, decrease: 52920 }, { value: 960000, rate: 0.35, decrease: 85920 }, { value: Number.MAX_VALUE, rate: 0.45, decrease: 181920 }], bonus: "", leaveBonus: "",
+      average: "",
+      tax: "",
       rateInfo: {},
       showResult: false };
 
@@ -277,7 +279,14 @@ var _default = { data: function data() {return { type: 1, singleRateMap: [{ valu
     },
     rate: function rate(value) {
       return (0, _format.toRate)(value);
-    } } };exports.default = _default;
+    } },
+
+  onShareAppMessage: function onShareAppMessage() {
+    return {
+      title: '薪资税后计算器2023',
+      path: "pages/year/index" };
+
+  } };exports.default = _default;
 
 /***/ }),
 /* 18 */,
